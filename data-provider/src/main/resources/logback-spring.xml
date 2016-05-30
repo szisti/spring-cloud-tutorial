@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}application.log}"/>
+    <property name="CONSOLE_LOG_LEVEL" value="WARN"/>
+    <include resource="logback-console-appender.xml"/>
+    <include resource="logback-file-appender.xml"/>
+    <root level="${CONSOLE_LOG_LEVEL}}">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

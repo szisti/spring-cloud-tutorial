@@ -1,0 +1,25 @@
+server.port: 8080
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    data-collector:
+      path: /data-collector/**
+      serviceId: data-collector
+      stripPrefix: true
+    data-provider:
+      path: /data-provider/**
+      serviceId: data-provider
+      stripPrefix: true
+    data-processor:
+      path: /data-processor/**
+      serviceId: data-processor
+      stripPrefix: true
